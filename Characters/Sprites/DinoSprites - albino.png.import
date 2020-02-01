@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/DinoSprites - albino.png-189080938dbd8b6c521384c6cbfb22d5.stex"
+path="res://.import/DinoSprites - albino.png-bb71b17d18af1b4e8d5d76eaccc353e8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Characters/AlbinoDino/DinoSprites - albino.png"
-dest_files=[ "res://.import/DinoSprites - albino.png-189080938dbd8b6c521384c6cbfb22d5.stex" ]
+source_file="res://Characters/Sprites/DinoSprites - albino.png"
+dest_files=[ "res://.import/DinoSprites - albino.png-bb71b17d18af1b4e8d5d76eaccc353e8.stex" ]
 
 [params]
 
