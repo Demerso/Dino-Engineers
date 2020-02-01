@@ -23,6 +23,10 @@ _global_script_class_icons={
 config/name="GameJam2020"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/resizable=false
+
 [gdnative]
 
 singletons=[ "res://git_api.gdnlib" ]
