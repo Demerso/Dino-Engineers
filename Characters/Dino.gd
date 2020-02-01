@@ -16,15 +16,50 @@ var hurt = false
 func _ready():
 	_sprite.set_sprite_frames(_blue)
 
-func _process(delta):
+const UP = Vector2(0,-1)
+const GRAVITY = 20
+const MAX_SPEED = 500
+const ACCELERATION = 50
+const JUMP_HEIGHT = -550
+var nbjump = 1 #might increase it with item picked up
+var motion = Vector2()
+var directionx := 0
+
+
+func _physics_process(delta: float) -> void:
+	motion.y += GRAVITY
+	var friction = false
+	directionx = Input.get_action_strength("ui_right")-Input.get_action_strength("ui_left")
+	if directionx != 0:
+		motion.x = clamp(motion.x+ACCELERATION*directionx,-MAX_SPEED,MAX_SPEED)
+	else:
+		motion.x = lerp(motion.x,0, 0.2)
+		friction = true
+	update_sprite(directionx)
+	if is_on_floor():
+		nbjump = 1
+		if friction == true:
+			motion.x = lerp(motion.x,0, 0.2)
+	else:
+		if friction == true:
+			motion.x = lerp(motion.x,0, 0.05)
+	if (Input.is_action_pressed("ui_up") and nbjump > 0):
+			motion.y = JUMP_HEIGHT
+			nbjump = 0
+	if motion.y < 0 and Input.is_action_just_released("ui_up"):
+		motion.y = 0
+	motion = move_and_slide(motion,UP)
+	pass
+
+func update_sprite(dir : float):
 	if (!kicking && !hurt):
-		if Input.is_action_pressed("ui_left"):
+		if dir < 0:
 			_sprite.set_flip_h(true)
 			if Input.is_action_pressed("ui_down"):
 				_sprite.play("Crouch")
 			else:
 				_sprite.play("Move")
-		elif Input.is_action_pressed("ui_right"):
+		elif dir > 0:
 			_sprite.set_flip_h(false)
 			if Input.is_action_pressed("ui_down"):
 				_sprite.play("Crouch")
