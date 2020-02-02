@@ -52,6 +52,7 @@ texture = ExtResource( 4 )
 
 [node name="RepairSound" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource( 2 )
+volume_db = 2.0
 
 [node name="Particles2D" type="Particles2D" parent="."]
 emitting = false
