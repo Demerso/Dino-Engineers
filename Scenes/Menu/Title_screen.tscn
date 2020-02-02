@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Scenes/Menu/GameJam Asset/Menu Assets/Title.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Menu/Button's/Play.tscn" type="PackedScene" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://Scenes/Menu/background.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Menu/GameJam Asset/Menu Assets/pixil-frame-0 (4).png" type="Texture" id=9]
 [ext_resource path="res://Scenes/Menu/Title_screen.gd" type="Script" id=10]
+[ext_resource path="res://Menu Music/MenuMusic.wav" type="AudioStream" id=11]
+[ext_resource path="res://sFx/UI4.wav" type="AudioStream" id=12]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 6 )
@@ -83,6 +85,9 @@ animations = [ {
 "speed": 15.0
 } ]
 
+[sub_resource type="AudioStreamRandomPitch" id=16]
+audio_stream = ExtResource( 12 )
+
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -122,7 +127,6 @@ position = Vector2( 214.123, 60.1074 )
 scale = Vector2( 5, 5 )
 frames = ExtResource( 7 )
 animation = "Idle"
-frame = 1
 playing = true
 
 [node name="Quit" type="Button" parent="."]
@@ -152,7 +156,7 @@ __meta__ = {
 position = Vector2( 188.039, 49.9162 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 5 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
@@ -160,7 +164,7 @@ position = Vector2( 697.213, 370.391 )
 scale = Vector2( 12.7043, 12.2539 )
 frames = SubResource( 10 )
 animation = "idle"
-frame = 3
+frame = 2
 playing = true
 flip_h = true
 
@@ -178,7 +182,6 @@ __meta__ = {
 position = Vector2( 190.605, 42.6119 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 15 )
-frame = 1
 playing = true
 
 [node name="TextureRect" type="TextureRect" parent="OptionsButton"]
@@ -193,6 +196,14 @@ expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 11 )
+autoplay = true
+bus = "Music"
+
+[node name="ButtonPress" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource( 16 )
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]
 [connection signal="pressed" from="OptionsButton" to="." method="_on_OptionsButton_pressed"]

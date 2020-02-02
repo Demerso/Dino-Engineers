@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+onready var player_vars = get_node("/root/PlayerVars")
+
 onready var _sprite = $AnimatedSprite
 onready var _item = $item_picked
 
@@ -43,7 +45,10 @@ var bodytokick = null
 var item_picked_up = null
 
 func _ready():
-	_sprite.set_sprite_frames(_blue)
+	if character == 1:
+		_sprite.set_sprite_frames(load(player_vars.p1Sprite))
+	else:
+		_sprite.set_sprite_frames(load(player_vars.p2Sprite))
 
 func _physics_process(delta: float) -> void:
 	motion.y += GRAVITY

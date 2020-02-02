@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Menu/GameJam Asset/Menu Assets/pixil-frame-0 (4).png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Menu/OptionsMenu.gd" type="Script" id=2]
@@ -7,6 +7,11 @@
 [ext_resource path="res://Scenes/Menu/GameJam Asset/Menu Assets/Sound.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Menu/GameJam Asset/Menu Assets/music.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/Menu/background.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Menu Music/MenuMusic.wav" type="AudioStream" id=8]
+[ext_resource path="res://sFx/UI4.wav" type="AudioStream" id=9]
+
+[sub_resource type="AudioStreamRandomPitch" id=1]
+audio_stream = ExtResource( 9 )
 
 [node name="OptionsMenu" type="Control"]
 anchor_right = 1.0
@@ -96,5 +101,13 @@ margin_right = -16.9109
 margin_bottom = 44.8219
 texture = ExtResource( 5 )
 expand = true
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+autoplay = true
+bus = "Music"
+
+[node name="ButtonPress" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource( 1 )
 [connection signal="pressed" from="BackButton" to="." method="_on_TextureButton_pressed"]
 [connection signal="value_changed" from="masterVolSlider" to="." method="_on_HSlider_value_changed"]

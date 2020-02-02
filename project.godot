@@ -20,8 +20,13 @@ _global_script_class_icons={
 
 [application]
 
-config/name="GameJam2020"
+config/name="Space Engineer"
+run/main_scene="res://Scenes/Menu/Title_screen.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+PlayerVars="*res://Characters/PlayerVars.gd"
 
 [display]
 
