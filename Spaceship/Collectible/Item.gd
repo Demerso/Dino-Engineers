@@ -5,16 +5,16 @@ var picked = false
 onready var _sprite = $Sprite
 var translation = Vector2()
 export var mov_spd = 0.3
-onready var items = [preload("res://Spaceship/asset/Canopy_Icon.png"),
-					 preload("res://Spaceship/asset/Engine_Icon.png"),
-					 preload("res://Spaceship/asset/Haul_Icon.png"),
-					 preload("res://Spaceship/asset/SS_Wing.png")]
+onready var items = ["res://Spaceship/asset/Canopy_Icon.png",
+					 "res://Spaceship/asset/Engine_Icon.png",
+					 "res://Spaceship/asset/Haul_Icon.png",
+					 "res://Spaceship/asset/SS_Wing.png"]
 					
 var item
 
 func _ready():
 	item = items[randi()%4]
-	_sprite.set_texture(item)
+	_sprite.set_texture(load(item))
 	$Particles2D.emitting = true
 
 func _process(delta):

@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Spaceship/asset/SS_Wing.png" type="Texture" id=1]
+[ext_resource path="res://Spaceship/asset/Canopy_Fixed.png" type="Texture" id=2]
+[ext_resource path="res://Spaceship/asset/SS_Broken.png" type="Texture" id=3]
+[ext_resource path="res://Spaceship/asset/Haul_Fixed.png" type="Texture" id=4]
+[ext_resource path="res://Spaceship/asset/SS_FIXED.png" type="Texture" id=5]
+[ext_resource path="res://Spaceship/asset/Engine_Fixed.png" type="Texture" id=6]
+[ext_resource path="res://Spaceship/Spaceship.gd" type="Script" id=7]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 59.9423
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="SS_FIXED" type="Sprite" parent="Sprite"]
+visible = false
+position = Vector2( -5, -4 )
+texture = ExtResource( 5 )
+
+[node name="Canopy_Fixed" type="Sprite" parent="Sprite"]
+visible = false
+position = Vector2( 14, -16 )
+texture = ExtResource( 2 )
+
+[node name="Engine_Fixed" type="Sprite" parent="Sprite"]
+visible = false
+position = Vector2( -5, 17 )
+texture = ExtResource( 6 )
+
+[node name="SS_Wing" type="Sprite" parent="Sprite"]
+visible = false
+position = Vector2( -55, -27 )
+texture = ExtResource( 1 )
+
+[node name="Haul_Fixed" type="Sprite" parent="Sprite"]
+visible = false
+position = Vector2( -20, -13 )
+texture = ExtResource( 4 )
+[connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]

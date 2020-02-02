@@ -39,7 +39,7 @@ func _physics_process(delta: float) -> void:
 	directionx = Input.get_action_strength("right" + str(character))-Input.get_action_strength("left" + str(character))
 	
 	if item_picked_up != null:
-		_item.set_texture(item_picked_up)
+		_item.set_texture(load(item_picked_up))
 		_item.visible = true
 	else:
 		_item.visible = false
