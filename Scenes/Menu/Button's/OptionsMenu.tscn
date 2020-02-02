@@ -1,7 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/Menu/GameJam Asset/Menu Assets/pixil-frame-0 (4).png" type="Texture" id=1]
-[ext_resource path="res://Scenes/Menu/Button's/MenuButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Menu/MenuButton.tscn" type="PackedScene" id=2]
+
+
 
 
 [node name="OptionsMenu" instance=ExtResource( 2 )]

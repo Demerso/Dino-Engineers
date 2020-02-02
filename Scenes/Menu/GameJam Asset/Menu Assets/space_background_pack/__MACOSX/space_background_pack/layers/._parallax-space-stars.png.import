@@ -2,16 +2,11 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/pixil-frame-0 (4).png-472eb55d0d8d7e3c33a8195d0a920732.stex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
-source_file="res://Scenes/Menu/GameJam Asset/Menu Assets/pixil-frame-0 (4).png"
-dest_files=[ "res://.import/pixil-frame-0 (4).png-472eb55d0d8d7e3c33a8195d0a920732.stex" ]
-
+source_file="res://Scenes/Menu/GameJam Asset/Menu Assets/space_background_pack/__MACOSX/space_background_pack/layers/._parallax-space-stars.png"
 [params]
 
 compress/mode=0
@@ -24,7 +19,7 @@ flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
-process/fix_alpha_border=false
+process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false

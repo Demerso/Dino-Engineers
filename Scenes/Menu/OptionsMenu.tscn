@@ -1,0 +1,100 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/Menu/GameJam Asset/Menu Assets/pixil-frame-0 (4).png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Menu/OptionsMenu.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Menu/GameJam Asset/Menu Assets/ARROW.PNG" type="Texture" id=3]
+[ext_resource path="res://Scenes/Menu/GameJam Asset/Menu Assets/mastervol.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Menu/GameJam Asset/Menu Assets/Sound.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Menu/GameJam Asset/Menu Assets/music.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Menu/background.tscn" type="PackedScene" id=7]
+
+[node name="OptionsMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.28473
+margin_top = -0.472565
+margin_right = 2.28467
+margin_bottom = -0.472534
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" parent="." instance=ExtResource( 7 )]
+
+[node name="OptionsIcon" type="TextureRect" parent="."]
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = 437.0
+margin_top = 1.0
+margin_right = 83.0
+margin_bottom = -442.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="BackButton" type="TextureButton" parent="."]
+margin_left = -2.0
+margin_top = 1.0
+margin_right = 138.0
+margin_bottom = 86.0
+texture_normal = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="masterVolSlider" type="HSlider" parent="."]
+anchor_right = 0.1
+anchor_bottom = 0.188
+margin_left = 294.615
+margin_top = 254.207
+margin_right = 754.215
+margin_bottom = 157.407
+
+[node name="TextureRect" type="TextureRect" parent="masterVolSlider"]
+anchor_left = -0.143
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -5.96096
+margin_top = -35.8716
+margin_right = -571.327
+margin_bottom = 33.1284
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BMGSlider" type="HSlider" parent="."]
+anchor_right = 0.1
+anchor_bottom = 0.188
+margin_left = 295.842
+margin_top = 335.238
+margin_right = 755.442
+margin_bottom = 238.438
+
+[node name="TextureRect" type="TextureRect" parent="BMGSlider"]
+margin_left = -90.9109
+margin_top = -37.0
+margin_right = -12.9109
+margin_bottom = 46.0
+texture = ExtResource( 6 )
+expand = true
+
+[node name="SFXSlider" type="HSlider" parent="."]
+anchor_right = 0.1
+anchor_bottom = 0.188
+margin_left = 295.842
+margin_top = 410.13
+margin_right = 755.442
+margin_bottom = 313.33
+
+[node name="TextureRect" type="TextureRect" parent="SFXSlider"]
+margin_left = -89.9109
+margin_top = -27.1781
+margin_right = -16.9109
+margin_bottom = 44.8219
+texture = ExtResource( 5 )
+expand = true
+[connection signal="pressed" from="BackButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="value_changed" from="masterVolSlider" to="." method="_on_HSlider_value_changed"]

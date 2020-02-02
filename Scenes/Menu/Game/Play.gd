@@ -1,7 +1,7 @@
 extends Control
 
 func _on_Back_Button_pressed():
-	get_tree().change_scene("res://Title_screen.tscn")
+	get_tree().change_scene("res://Scenes/Menu/Title_screen.tscn")
 func _on_P1rdy_pressed():
 	if ($P1rdy2.pressed):
 		pass#LOAD MAIN GAME SCENE
