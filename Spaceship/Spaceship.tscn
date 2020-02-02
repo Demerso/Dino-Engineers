@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Spaceship/asset/SS_Wing.png" type="Texture" id=1]
 [ext_resource path="res://Spaceship/asset/Canopy_Fixed.png" type="Texture" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Spaceship/asset/Engine_Fixed.png" type="Texture" id=6]
 [ext_resource path="res://Spaceship/Spaceship.gd" type="Script" id=7]
 [ext_resource path="res://sFx/Repair Ship.wav" type="AudioStream" id=8]
+[ext_resource path="res://Spaceship/RepairSmoke.tres" type="Material" id=9]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 59.9423
@@ -51,4 +52,11 @@ texture = ExtResource( 4 )
 
 [node name="RepairSound" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource( 2 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+emitting = false
+amount = 500
+one_shot = true
+explosiveness = 0.75
+process_material = ExtResource( 9 )
 [connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]

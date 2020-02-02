@@ -17,6 +17,7 @@ func _on_Area2D_body_entered(body):
 						$Sprite/Canopy_Fixed.visible = true
 						body.item_picked_up = null
 						$RepairSound.play()
+						$Particles2D.emitting = true
 					
 				"res://Spaceship/asset/Engine_Icon.png":
 					if engine == false:	
@@ -24,6 +25,7 @@ func _on_Area2D_body_entered(body):
 						$Sprite/Engine_Fixed.visible = true
 						body.item_picked_up = null
 						$RepairSound.play()
+						$Particles2D.emitting = true
 
 				"res://Spaceship/asset/Haul_Icon.png":
 					if haul == false:	
@@ -31,6 +33,7 @@ func _on_Area2D_body_entered(body):
 						$Sprite/Haul_Fixed.visible = true
 						body.item_picked_up = null
 						$RepairSound.play()
+						$Particles2D.emitting = true
 					
 				"res://Spaceship/asset/SS_Wing.png":
 					if wing == false:	
@@ -38,6 +41,7 @@ func _on_Area2D_body_entered(body):
 						$Sprite/SS_Wing.visible = true
 						body.item_picked_up = null
 						$RepairSound.play()
+						$Particles2D.emitting = true
 						
 	if (haul && wing && engine && canopy) == true:
 		print("Winner")
