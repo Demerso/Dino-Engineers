@@ -21,6 +21,10 @@ randomness = 1.0
 local_coords = false
 process_material = ExtResource( 2 )
 
+[node name="Timer" type="Timer" parent="Particles2D"]
+one_shot = true
+
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 1 )
+[connection signal="timeout" from="Particles2D/Timer" to="." method="_on_Timer_timeout"]
