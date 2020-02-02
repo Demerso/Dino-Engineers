@@ -35,6 +35,7 @@ window/size/resizable=false
 [gdnative]
 
 singletons=[ "res://git_api.gdnlib" ]
+singletons_disabled=[ "res://git_api.gdnlib" ]
 
 [importer_defaults]
 
