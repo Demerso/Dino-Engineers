@@ -16,6 +16,7 @@ func _process(delta):
 		$Sprite.hide()
 		$Particles2D/Timer.start()
 		dead = true
+		$Whistle.stop()
 
 func _on_Timer_timeout():
 	queue_free()

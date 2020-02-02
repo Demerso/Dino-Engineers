@@ -1,11 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Spaceship/Collectible/Item.gd" type="Script" id=1]
 [ext_resource path="res://Spaceship/Collectible/Explosion.tres" type="Material" id=2]
 [ext_resource path="res://sFx/Get Piece.wav" type="AudioStream" id=3]
+[ext_resource path="res://sFx/MeteoriteBoom.wav" type="AudioStream" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 25.0
+
+[sub_resource type="AudioStreamRandomPitch" id=3]
+audio_stream = ExtResource( 4 )
 
 [sub_resource type="AudioStreamRandomPitch" id=2]
 audio_stream = ExtResource( 3 )
@@ -35,6 +39,9 @@ process_material = ExtResource( 2 )
 [node name="sFxItem" type="Node" parent="."]
 
 [node name="ExplosionSound" type="AudioStreamPlayer2D" parent="sFxItem"]
+stream = SubResource( 3 )
+volume_db = 10.0
+autoplay = true
 
 [node name="PickupSound" type="AudioStreamPlayer2D" parent="sFxItem"]
 stream = SubResource( 2 )
