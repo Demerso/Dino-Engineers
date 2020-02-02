@@ -40,7 +40,6 @@ process_material = ExtResource( 2 )
 
 [node name="ExplosionSound" type="AudioStreamPlayer2D" parent="sFxItem"]
 stream = SubResource( 3 )
-volume_db = 10.0
 autoplay = true
 
 [node name="PickupSound" type="AudioStreamPlayer2D" parent="sFxItem"]
