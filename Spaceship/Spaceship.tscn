@@ -17,13 +17,13 @@ script = ExtResource( 7 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="Sprite" type="Sprite" parent="."]
-texture = ExtResource( 3 )
-
-[node name="SS_FIXED" type="Sprite" parent="Sprite"]
+[node name="SS_FIXED" type="Sprite" parent="."]
 visible = false
 position = Vector2( -5, -4 )
 texture = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
 
 [node name="Canopy_Fixed" type="Sprite" parent="Sprite"]
 visible = false
