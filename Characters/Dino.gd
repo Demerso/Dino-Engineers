@@ -9,6 +9,7 @@ onready var _crounch = $sFxCharacter/CrounchSound
 onready var _land = $sFxCharacter/LandSound
 onready var _skrrrt = $sFxCharacter/SkrrrtSound
 onready var _kick = $sFxCharacter/KickSound
+onready var _hurt = $sFxCharacter/HurtSound
 
 onready var _albino = preload("res://Characters/AlbinoAnimation.tres")
 onready var _blue = preload("res://Characters/BlueAnimation.tres")
@@ -75,8 +76,10 @@ func _physics_process(delta: float) -> void:
 		motion.y = 0
 	if hurt == true:
 		_sprite.play("Hurt")
+		
 	if bodytokick != null && kicking == true:
 		bodytokick.hurt = true
+		bodytokick._hurt.play()
 		bodytokick.item_picked_up = null
 		if (_sprite.is_flipped_h()):
 			bodytokick.motion.y = -500
