@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Break Ship3.wav-d02c304537233e4ee9f5de07092054db.sample"
+
+[deps]
+
+source_file="res://sFx/Break Ship3.wav"
+dest_files=[ "res://.import/Break Ship3.wav-d02c304537233e4ee9f5de07092054db.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

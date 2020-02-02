@@ -1,13 +1,37 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Characters/Dino.gd" type="Script" id=1]
 [ext_resource path="res://Characters/AlbinoAnimation.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://sFx/Walk.wav" type="AudioStream" id=3]
+[ext_resource path="res://sFx/Jump.wav" type="AudioStream" id=4]
+[ext_resource path="res://sFx/Skrrrt.wav" type="AudioStream" id=5]
+[ext_resource path="res://sFx/Crounch.wav" type="AudioStream" id=6]
+[ext_resource path="res://sFx/Landing.wav" type="AudioStream" id=7]
+[ext_resource path="res://sFx/Punch2.wav" type="AudioStream" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15, 18 )
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 25.0
+
+[sub_resource type="AudioStreamRandomPitch" id=3]
+audio_stream = ExtResource( 3 )
+
+[sub_resource type="AudioStreamRandomPitch" id=4]
+audio_stream = ExtResource( 4 )
+
+[sub_resource type="AudioStreamRandomPitch" id=5]
+audio_stream = ExtResource( 6 )
+
+[sub_resource type="AudioStreamRandomPitch" id=6]
+audio_stream = ExtResource( 5 )
+
+[sub_resource type="AudioStreamRandomPitch" id=7]
+audio_stream = ExtResource( 7 )
+
+[sub_resource type="AudioStreamRandomPitch" id=8]
+audio_stream = ExtResource( 8 )
 
 [node name="Dino" type="KinematicBody2D"]
 scale = Vector2( 2, 2 )
@@ -35,8 +59,36 @@ shape = SubResource( 2 )
 [node name="item_picked" type="Sprite" parent="."]
 position = Vector2( 0, -19.46 )
 
-[node name="Elliot_is_a_donkey" type="Sprite" parent="."]
-position = Vector2( 0, -19.46 )
+[node name="sFxCharacter" type="Node" parent="."]
+
+[node name="WalkSound" type="AudioStreamPlayer2D" parent="sFxCharacter"]
+stream = SubResource( 3 )
+volume_db = -8.0
+bus = "sFx"
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="sFxCharacter"]
+stream = SubResource( 4 )
+bus = "sFx"
+
+[node name="CrounchSound" type="AudioStreamPlayer2D" parent="sFxCharacter"]
+stream = SubResource( 5 )
+volume_db = -3.0
+bus = "sFx"
+
+[node name="SkrrrtSound" type="AudioStreamPlayer2D" parent="sFxCharacter"]
+stream = SubResource( 6 )
+volume_db = -3.0
+bus = "sFx"
+
+[node name="LandSound" type="AudioStreamPlayer2D" parent="sFxCharacter"]
+stream = SubResource( 7 )
+volume_db = -2.0
+bus = "sFx"
+
+[node name="KickSound" type="AudioStreamPlayer2D" parent="sFxCharacter"]
+stream = SubResource( 8 )
+volume_db = 20.0
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="finished" from="sFxCharacter/WalkSound" to="." method="_on_WalkSound_finished"]
