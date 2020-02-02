@@ -124,7 +124,7 @@ func _on_WalkSound_finished():
 	if walk == true:
 		walk = false
 	
-	#soundEnd
+	#soundEnd (kick is later)
 	
 
 func update_sprite(dir : float):
@@ -166,61 +166,71 @@ func _on_Area2D_body_exited(body: Node) -> void:
 		bodytokick = null
 
 func _input(event):
-	match konami_code:
-		0: 
-			if event.is_action_pressed("jump"  + str(character)): konami_code += 1
-			else: konami_code = 0
-		1: 
-			if event.is_action_released("jump"  + str(character)): konami_code += 1
-			else: konami_code = 0
-		2: 
-			if event.is_action_pressed("jump"  + str(character)): konami_code += 1
-			else: konami_code = 0
-		3: 
-			if event.is_action_released("jump" + str(character)): konami_code += 1
-			else: konami_code = 0
-		4:
-			if event.is_action_pressed("down" + str(character)): konami_code += 1
-			else: konami_code = 0
-		5:
-			if event.is_action_released("down" + str(character)): konami_code += 1
-			else: konami_code = 0
-		6:
-			if event.is_action_pressed("down" + str(character)): konami_code += 1
-			else: konami_code = 0
-		7:
-			if event.is_action_released("down" + str(character)): konami_code += 1
-			else: konami_code = 0
-		8:
-			if event.is_action_pressed("left" + str(character)): konami_code += 1
-			else: konami_code = 0
-		9:
-			if event.is_action_released("left" + str(character)): konami_code += 1
-			else: konami_code = 0
-		10:
-			if event.is_action_pressed("right" + str(character)): konami_code += 1
-			else: konami_code = 0
-		11:
-			if event.is_action_released("right" + str(character)): konami_code += 1
-			else: konami_code = 0
-		12:
-			if event.is_action_pressed("left" + str(character)): konami_code += 1
-			else: konami_code = 0
-		13:
-			if event.is_action_released("left" + str(character)): konami_code += 1
-			else: konami_code = 0
-		14:
-			if event.is_action_pressed("right" + str(character)): konami_code += 1
-			else: konami_code = 0
-		15:
-			if event.is_action_released("right" + str(character)): konami_code += 1
-			else: konami_code = 0
-		16:
-			if event.is_action_pressed("kick" + str(character)): konami_code += 1
-			else: konami_code = 0
-		16:
-			if event.is_action_released("kick" + str(character)): konami_code += 1
-			else: konami_code = 0
-		17:
-			if _sprite.get_sprite_frames() != _albino:
-				_sprite.set_sprite_frames(_albino)
+	if (event.is_action_pressed("jump"  + str(character)) ||
+		event.is_action_pressed("down" + str(character)) ||
+		event.is_action_pressed("left" + str(character)) ||
+		event.is_action_pressed("right" + str(character)) ||
+		event.is_action_pressed("kick" + str(character)) ||
+		event.is_action_released("jump"  + str(character)) ||
+		event.is_action_released("down" + str(character)) ||
+		event.is_action_released("left" + str(character)) ||
+		event.is_action_released("right" + str(character)) ||
+		event.is_action_released("kick" + str(character))):
+		match konami_code:
+			0: 
+				if event.is_action_pressed("jump"  + str(character)): konami_code += 1
+				else: konami_code = 0
+			1: 
+				if event.is_action_released("jump"  + str(character)): konami_code += 1
+				else: konami_code = 0
+			2: 
+				if event.is_action_pressed("jump"  + str(character)): konami_code += 1
+				else: konami_code = 0
+			3: 
+				if event.is_action_released("jump" + str(character)): konami_code += 1
+				else: konami_code = 0
+			4:
+				if event.is_action_pressed("down" + str(character)): konami_code += 1
+				else: konami_code = 0
+			5:
+				if event.is_action_released("down" + str(character)): konami_code += 1
+				else: konami_code = 0
+			6:
+				if event.is_action_pressed("down" + str(character)): konami_code += 1
+				else: konami_code = 0
+			7:
+				if event.is_action_released("down" + str(character)): konami_code += 1
+				else: konami_code = 0
+			8:
+				if event.is_action_pressed("left" + str(character)): konami_code += 1
+				else: konami_code = 0
+			9:
+				if event.is_action_released("left" + str(character)): konami_code += 1
+				else: konami_code = 0
+			10:
+				if event.is_action_pressed("right" + str(character)): konami_code += 1
+				else: konami_code = 0
+			11:
+				if event.is_action_released("right" + str(character)): konami_code += 1
+				else: konami_code = 0
+			12:
+				if event.is_action_pressed("left" + str(character)): konami_code += 1
+				else: konami_code = 0
+			13:
+				if event.is_action_released("left" + str(character)): konami_code += 1
+				else: konami_code = 0
+			14:
+				if event.is_action_pressed("right" + str(character)): konami_code += 1
+				else: konami_code = 0
+			15:
+				if event.is_action_released("right" + str(character)): konami_code += 1
+				else: konami_code = 0
+			16:
+				if event.is_action_pressed("kick" + str(character)): konami_code += 1
+				else: konami_code = 0
+			16:
+				if event.is_action_released("kick" + str(character)): konami_code += 1
+				else: konami_code = 0
+			17:
+				if _sprite.get_sprite_frames() != _albino:
+					_sprite.set_sprite_frames(_albino)
