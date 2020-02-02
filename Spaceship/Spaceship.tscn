@@ -11,7 +11,7 @@
 [ext_resource path="res://Spaceship/RepairSmoke.tres" type="Material" id=9]
 [ext_resource path="res://Spaceship/WinConfetti.tres" type="Material" id=10]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=3]
 radius = 59.9423
 
 [sub_resource type="AudioStreamRandomPitch" id=2]
@@ -27,7 +27,7 @@ amount = 100
 process_material = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="SS_FIXED" type="Sprite" parent="."]
 visible = false

@@ -46,8 +46,9 @@ func _on_Area2D_body_entered(body):
 						
 	if (haul && wing && engine && canopy) == true:
 		print("Winner")
-		$Sprite.visible = false;
-		$SS_FIXED.visible = true;
+		$Sprite.visible = false
+		$SS_FIXED.visible = true
+		$Confetti.emitting = true
 		
 		var object = trophy.instance()
 		object.winner = ship
