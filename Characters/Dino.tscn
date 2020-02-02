@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Characters/Dino.gd" type="Script" id=1]
@@ -10,6 +11,12 @@
 [ext_resource path="res://sFx/Punch2.wav" type="AudioStream" id=8]
 [ext_resource path="res://sFx/DinoHurt.wav" type="AudioStream" id=9]
 [ext_resource path="res://sFx/Lose Piece.wav" type="AudioStream" id=10]
+=======
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Characters/Dino.gd" type="Script" id=1]
+[ext_resource path="res://Characters/AlbinoAnimation.tres" type="SpriteFrames" id=2]
+>>>>>>> Stashed changes
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15, 18 )
@@ -17,6 +24,7 @@ extents = Vector2( 15, 18 )
 [sub_resource type="CircleShape2D" id=2]
 radius = 25.0
 
+<<<<<<< Updated upstream
 [sub_resource type="AudioStreamRandomPitch" id=3]
 audio_stream = ExtResource( 3 )
 
@@ -41,6 +49,8 @@ audio_stream = ExtResource( 9 )
 [sub_resource type="AudioStreamRandomPitch" id=10]
 audio_stream = ExtResource( 10 )
 
+=======
+>>>>>>> Stashed changes
 [node name="Dino" type="KinematicBody2D"]
 scale = Vector2( 2, 2 )
 script = ExtResource( 1 )
@@ -68,6 +78,7 @@ shape = SubResource( 2 )
 visible = false
 position = Vector2( 0, -19.46 )
 
+<<<<<<< Updated upstream
 [node name="sFxCharacter" type="Node" parent="."]
 
 [node name="WalkSound" type="AudioStreamPlayer2D" parent="sFxCharacter"]
@@ -106,7 +117,10 @@ volume_db = 5.0
 [node name="LosePieceSound" type="AudioStreamPlayer2D" parent="sFxCharacter"]
 scale = Vector2( 2, 2 )
 stream = SubResource( 10 )
+=======
+[node name="Elliot_is_a_donkey" type="Sprite" parent="."]
+position = Vector2( 0, -19.46 )
+>>>>>>> Stashed changes
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
-[connection signal="finished" from="sFxCharacter/WalkSound" to="." method="_on_WalkSound_finished"]

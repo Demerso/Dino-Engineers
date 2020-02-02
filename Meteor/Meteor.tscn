@@ -33,5 +33,4 @@ texture = ExtResource( 1 )
 stream = ExtResource( 4 )
 volume_db = -2.0
 autoplay = true
-bus = "sFx"
 [connection signal="timeout" from="Particles2D/Timer" to="." method="_on_Timer_timeout"]

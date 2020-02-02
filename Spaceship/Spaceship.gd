@@ -4,6 +4,7 @@ var engine := false
 var haul := false
 var wing := false
 var canopy := false
+var trophy = preload("res://Scenes/Trophy.tscn")
 
 export var ship: int
 
@@ -47,4 +48,10 @@ func _on_Area2D_body_entered(body):
 		print("Winner")
 		$Sprite.visible = false;
 		$SS_FIXED.visible = true;
-		body.position = position
+		
+		var object = trophy.instance()
+		object.winner = ship
+		object.position = Vector2(512,300)
+		get_tree().get_root().add_child(object)
+		
+		
