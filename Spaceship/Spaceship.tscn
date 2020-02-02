@@ -11,7 +11,7 @@
 [ext_resource path="res://Spaceship/RepairSmoke.tres" type="Material" id=9]
 [ext_resource path="res://Spaceship/WinConfetti.tres" type="Material" id=10]
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=1]
 radius = 59.9423
 
 [sub_resource type="AudioStreamRandomPitch" id=2]
@@ -23,11 +23,11 @@ script = ExtResource( 7 )
 
 [node name="Confetti" type="Particles2D" parent="."]
 emitting = false
-amount = 100
+amount = 200
 process_material = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="SS_FIXED" type="Sprite" parent="."]
 visible = false
