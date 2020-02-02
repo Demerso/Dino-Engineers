@@ -8,10 +8,10 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 25.0
 
-[sub_resource type="AudioStreamRandomPitch" id=3]
+[sub_resource type="AudioStreamRandomPitch" id=2]
 audio_stream = ExtResource( 4 )
 
-[sub_resource type="AudioStreamRandomPitch" id=2]
+[sub_resource type="AudioStreamRandomPitch" id=3]
 audio_stream = ExtResource( 3 )
 
 [node name="Item" type="Area2D"]
@@ -39,11 +39,13 @@ process_material = ExtResource( 2 )
 [node name="sFxItem" type="Node" parent="."]
 
 [node name="ExplosionSound" type="AudioStreamPlayer2D" parent="sFxItem"]
-stream = SubResource( 3 )
+stream = SubResource( 2 )
 autoplay = true
+bus = "sFx"
 
 [node name="PickupSound" type="AudioStreamPlayer2D" parent="sFxItem"]
-stream = SubResource( 2 )
+stream = SubResource( 3 )
+bus = "sFx"
 [connection signal="body_entered" from="." to="." method="_on_Item_body_entered"]
 [connection signal="timeout" from="Sprite/Timer" to="." method="_on_Timer_timeout"]
 [connection signal="finished" from="sFxItem/PickupSound" to="." method="_on_PickupSound_finished"]

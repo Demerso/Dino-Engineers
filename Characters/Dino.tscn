@@ -12,47 +12,47 @@
 [ext_resource path="res://sFx/Lose Piece.wav" type="AudioStream" id=10]
 [ext_resource path="res://Characters/Sprites/trail.png" type="Texture" id=11]
 
-[sub_resource type="Gradient" id=12]
+[sub_resource type="Gradient" id=1]
 colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
 
-[sub_resource type="GradientTexture" id=13]
-gradient = SubResource( 12 )
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
 
-[sub_resource type="ParticlesMaterial" id=11]
+[sub_resource type="ParticlesMaterial" id=3]
 flag_disable_z = true
 gravity = Vector3( 0, 0, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
-color_ramp = SubResource( 13 )
+color_ramp = SubResource( 2 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 15, 18 )
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=5]
 radius = 25.0
 
-[sub_resource type="AudioStreamRandomPitch" id=3]
+[sub_resource type="AudioStreamRandomPitch" id=6]
 audio_stream = ExtResource( 3 )
 
-[sub_resource type="AudioStreamRandomPitch" id=4]
+[sub_resource type="AudioStreamRandomPitch" id=7]
 audio_stream = ExtResource( 4 )
 
-[sub_resource type="AudioStreamRandomPitch" id=5]
+[sub_resource type="AudioStreamRandomPitch" id=8]
 audio_stream = ExtResource( 6 )
 
-[sub_resource type="AudioStreamRandomPitch" id=6]
+[sub_resource type="AudioStreamRandomPitch" id=9]
 audio_stream = ExtResource( 5 )
 
-[sub_resource type="AudioStreamRandomPitch" id=7]
+[sub_resource type="AudioStreamRandomPitch" id=10]
 audio_stream = ExtResource( 7 )
 
-[sub_resource type="AudioStreamRandomPitch" id=8]
+[sub_resource type="AudioStreamRandomPitch" id=11]
 audio_stream = ExtResource( 8 )
 
-[sub_resource type="AudioStreamRandomPitch" id=9]
+[sub_resource type="AudioStreamRandomPitch" id=12]
 audio_stream = ExtResource( 9 )
 
-[sub_resource type="AudioStreamRandomPitch" id=10]
+[sub_resource type="AudioStreamRandomPitch" id=13]
 audio_stream = ExtResource( 10 )
 
 [node name="Dino" type="KinematicBody2D"]
@@ -68,7 +68,7 @@ emitting = false
 lifetime = 0.2
 one_shot = true
 local_coords = false
-process_material = SubResource( 11 )
+process_material = SubResource( 3 )
 texture = ExtResource( 11 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
@@ -79,13 +79,13 @@ frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 3.14159
-shape = SubResource( 1 )
+shape = SubResource( 4 )
 one_way_collision = true
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 
 [node name="item_picked" type="Sprite" parent="."]
 visible = false
@@ -94,41 +94,45 @@ position = Vector2( 0, -19.46 )
 [node name="sFxCharacter" type="Node" parent="."]
 
 [node name="WalkSound" type="AudioStreamPlayer2D" parent="sFxCharacter"]
-stream = SubResource( 3 )
+stream = SubResource( 6 )
 volume_db = -8.0
 bus = "sFx"
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="sFxCharacter"]
-stream = SubResource( 4 )
+stream = SubResource( 7 )
 bus = "sFx"
 
 [node name="CrounchSound" type="AudioStreamPlayer2D" parent="sFxCharacter"]
-stream = SubResource( 5 )
+stream = SubResource( 8 )
 volume_db = -3.0
 bus = "sFx"
 
 [node name="SkrrrtSound" type="AudioStreamPlayer2D" parent="sFxCharacter"]
-stream = SubResource( 6 )
+stream = SubResource( 9 )
 volume_db = -3.0
 bus = "sFx"
 
 [node name="LandSound" type="AudioStreamPlayer2D" parent="sFxCharacter"]
-stream = SubResource( 7 )
+stream = SubResource( 10 )
 volume_db = -2.0
 bus = "sFx"
 
 [node name="KickSound" type="AudioStreamPlayer2D" parent="sFxCharacter"]
-stream = SubResource( 8 )
+position = Vector2( 0, 2 )
+stream = SubResource( 11 )
 volume_db = 20.0
 bus = "sFx"
 
 [node name="HurtSound" type="AudioStreamPlayer2D" parent="sFxCharacter"]
-stream = SubResource( 9 )
+stream = SubResource( 12 )
 volume_db = 5.0
+bus = "sFx"
 
 [node name="LosePieceSound" type="AudioStreamPlayer2D" parent="sFxCharacter"]
+position = Vector2( 0, -2 )
 scale = Vector2( 2, 2 )
-stream = SubResource( 10 )
+stream = SubResource( 13 )
+bus = "sFx"
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]
