@@ -1,0 +1,182 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://Scenes/Menu/GameJam Asset/Menu Assets/Title.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Menu/Button's/Play.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Characters/Sprites/DinoSprites - albino.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Menu/GameJam Asset/Menu Assets/pixil-frame-0 (3).png" type="Texture" id=4]
+[ext_resource path="res://Characters/Sprites/DinoSprites - vita.png" type="Texture" id=5]
+[ext_resource path="res://Characters/Sprites/DinoSprites - tard.png" type="Texture" id=6]
+[ext_resource path="res://Characters/BlueAnimation.tres" type="SpriteFrames" id=7]
+[ext_resource path="res://Scenes/Menu/Button's/OptionsMenu.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Menu/Fade_In/FadeIn.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Menu/Title_screen.gd" type="Script" id=10]
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 5 )
+region = Rect2( 24, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 5 )
+region = Rect2( 48, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 5 )
+region = Rect2( 72, 0, 24, 24 )
+
+[sub_resource type="SpriteFrames" id=10]
+animations = [ {
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 6 )
+region = Rect2( 24, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 6 )
+region = Rect2( 48, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 6 )
+region = Rect2( 72, 0, 24, 24 )
+
+[sub_resource type="SpriteFrames" id=15]
+animations = [ {
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 24, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 3 )
+region = Rect2( 48, 0, 24, 24 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 3 )
+region = Rect2( 72, 0, 24, 24 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
+"loop": true,
+"name": "idle",
+"speed": 15.0
+} ]
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 3.0
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FadeIn" parent="." instance=ExtResource( 9 )]
+visible = false
+
+[node name="Logo" type="TextureRect" parent="."]
+margin_left = 200.0
+margin_right = 1512.0
+margin_bottom = 687.0
+rect_scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlayButton" parent="." instance=ExtResource( 2 )]
+margin_left = 179.241
+margin_top = 232.059
+margin_right = 557.241
+margin_bottom = 352.059
+rect_min_size = Vector2( 120, 120 )
+focus_mode = 0
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+align = 0
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="PlayButton"]
+position = Vector2( 202.064, 54.078 )
+scale = Vector2( 5, 5 )
+frames = ExtResource( 7 )
+animation = "Idle"
+frame = 1
+playing = true
+
+[node name="OptionsMenuButton" parent="." instance=ExtResource( 8 )]
+margin_left = 186.478
+margin_top = 340.0
+margin_right = 546.478
+margin_bottom = 460.0
+rect_min_size = Vector2( 360, 120 )
+focus_mode = 0
+enabled_focus_mode = 0
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="OptionsMenuButton"]
+position = Vector2( 193.605, 42.5238 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 10 )
+frame = 1
+playing = true
+
+[node name="Quit" type="Button" parent="."]
+margin_left = 193.0
+margin_top = 445.0
+margin_right = 553.0
+margin_bottom = 545.0
+rect_min_size = Vector2( 360, 100 )
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Quit"]
+margin_left = -14.0
+margin_top = -11.0
+margin_right = 18.0
+margin_bottom = 21.0
+rect_min_size = Vector2( 30, 30 )
+rect_scale = Vector2( 4, 4 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="Quit"]
+position = Vector2( 188.039, 43.8868 )
+scale = Vector2( 5, 5 )
+frames = SubResource( 15 )
+frame = 2
+playing = true
+
+[node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
+position = Vector2( 697.213, 370.391 )
+scale = Vector2( 12.7043, 12.2539 )
+frames = SubResource( 5 )
+animation = "idle"
+frame = 3
+playing = true
+flip_h = true
+[connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
