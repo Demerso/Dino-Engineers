@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Spaceship/asset/SS_Wing.png" type="Texture" id=1]
 [ext_resource path="res://Spaceship/asset/Canopy_Fixed.png" type="Texture" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Spaceship/Spaceship.gd" type="Script" id=7]
 [ext_resource path="res://sFx/Repair Ship.wav" type="AudioStream" id=8]
 [ext_resource path="res://Spaceship/RepairSmoke.tres" type="Material" id=9]
+[ext_resource path="res://Spaceship/WinConfetti.tres" type="Material" id=10]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 59.9423
@@ -18,6 +19,11 @@ audio_stream = ExtResource( 8 )
 
 [node name="Area2D" type="Area2D"]
 script = ExtResource( 7 )
+
+[node name="Confetti" type="Particles2D" parent="."]
+emitting = false
+amount = 100
+process_material = ExtResource( 10 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
