@@ -23,7 +23,8 @@ _global_script_class_icons={
 config/name="Dino Engineer"
 config/description="Arcade-style game about dinos fighting for their life. They somehow both crashed on an unknown planet and must find ship pieces to REPAIR their ship before the other does."
 run/main_scene="res://Scenes/Menu/Title_screen.tscn"
-config/icon="res://icon.png"
+boot_splash/image="res://SplashScreen.png"
+config/icon="res://Dino Engineers.png"
 
 [autoload]
 
@@ -31,7 +32,8 @@ PlayerVars="*res://Characters/PlayerVars.gd"
 
 [display]
 
-window/size/resizable=false
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
 
 [gdnative]
 
