@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 onready var _sprite = $AnimatedSprite
+onready var _item = $item_picked
 
 onready var _albino = preload("res://Characters/AlbinoAnimation.tres")
 onready var _blue = preload("res://Characters/BlueAnimation.tres")
@@ -29,10 +30,22 @@ var directionx := 0
 var friction = false
 var bodytokick = null
 
+var item_picked_up = null
+
+
 func _physics_process(delta: float) -> void:
 	motion.y += GRAVITY
 	friction = false
 	directionx = Input.get_action_strength("right" + str(character))-Input.get_action_strength("left" + str(character))
+	
+	if item_picked_up != null:
+		_item.set_texture(item_picked_up)
+		_item.visible = true
+	else:
+		_item.visible = false
+
+		
+	
 	if directionx != 0: #pressing a direction not both
 		#direction will change the way acceleration will be added to motion (-1,1) depend which side running	
 		motion.x = clamp(motion.x+ACCELERATION*directionx,-MAX_SPEED,MAX_SPEED) #cannot go under min speed or over maxspeed 
@@ -55,14 +68,17 @@ func _physics_process(delta: float) -> void:
 		_sprite.play("Hurt")
 	if bodytokick != null && kicking == true:
 		bodytokick.hurt = true
+		bodytokick.item_picked_up = null
 		if (_sprite.is_flipped_h()):
 			bodytokick.motion.y = -500
 			bodytokick.motion.x = -2000
 		else:
 			bodytokick.motion.y = -500
 			bodytokick.motion.x = 2000
+			
 	motion = move_and_slide(motion,UP)
 	pass
+	
 
 func update_sprite(dir : float):
 	if (!kicking && !hurt):
@@ -85,8 +101,8 @@ func update_sprite(dir : float):
 		
 	if Input.is_action_just_pressed("kick"  + str(character)):
 		kicking = true
+		item_picked_up = null
 		_sprite.play("Kick")
-		
 
 func _on_AnimatedSprite_animation_finished():
 	if kicking: kicking = false

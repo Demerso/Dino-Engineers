@@ -8,6 +8,9 @@ radius = 25.0
 
 [node name="Item" type="Area2D"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
 

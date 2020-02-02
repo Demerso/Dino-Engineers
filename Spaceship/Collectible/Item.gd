@@ -1,5 +1,7 @@
 extends Area2D
 
+var bodies= null
+var picked = false
 onready var _sprite = $Sprite
 var translation = Vector2()
 export var mov_spd = 0.3
@@ -26,5 +28,7 @@ func _on_Timer_timeout():
 
 
 func _on_Item_body_entered(body):
-	if body.name == "Player":
-		pass
+	if body.filename == "res://Characters/Dino.tscn" and picked == false:
+		if body.item_picked_up == null:
+			body.item_picked_up = item
+			queue_free()
