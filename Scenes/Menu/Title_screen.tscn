@@ -14,73 +14,73 @@
 [ext_resource path="res://sFx/UI6.wav" type="AudioStream" id=12]
 [ext_resource path="res://sFx/UI4.wav" type="AudioStream" id=13]
 
-[sub_resource type="AtlasTexture" id=17]
+[sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=18]
+[sub_resource type="AtlasTexture" id=2]
 atlas = ExtResource( 6 )
 region = Rect2( 24, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=19]
+[sub_resource type="AtlasTexture" id=3]
 atlas = ExtResource( 6 )
 region = Rect2( 48, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=20]
+[sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 6 )
 region = Rect2( 72, 0, 24, 24 )
 
-[sub_resource type="SpriteFrames" id=21]
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ) ],
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
 "loop": true,
 "name": "default",
 "speed": 15.0
 } ]
 
-[sub_resource type="AtlasTexture" id=22]
+[sub_resource type="AtlasTexture" id=6]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=23]
+[sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 3 )
 region = Rect2( 24, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=24]
+[sub_resource type="AtlasTexture" id=8]
 atlas = ExtResource( 3 )
 region = Rect2( 48, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=25]
+[sub_resource type="AtlasTexture" id=9]
 atlas = ExtResource( 3 )
 region = Rect2( 72, 0, 24, 24 )
 
-[sub_resource type="SpriteFrames" id=26]
+[sub_resource type="SpriteFrames" id=10]
 animations = [ {
-"frames": [ SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ) ],
+"frames": [ SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ) ],
 "loop": true,
 "name": "idle",
 "speed": 15.0
 } ]
 
-[sub_resource type="AtlasTexture" id=27]
+[sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 5 )
 region = Rect2( 0, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=28]
+[sub_resource type="AtlasTexture" id=12]
 atlas = ExtResource( 5 )
 region = Rect2( 24, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=29]
+[sub_resource type="AtlasTexture" id=13]
 atlas = ExtResource( 5 )
 region = Rect2( 48, 0, 24, 24 )
 
-[sub_resource type="AtlasTexture" id=30]
+[sub_resource type="AtlasTexture" id=14]
 atlas = ExtResource( 5 )
 region = Rect2( 72, 0, 24, 24 )
 
-[sub_resource type="SpriteFrames" id=31]
+[sub_resource type="SpriteFrames" id=15]
 animations = [ {
-"frames": [ SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ) ],
+"frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ) ],
 "loop": true,
 "name": "default",
 "speed": 15.0
@@ -90,7 +90,7 @@ animations = [ {
 audio_stream = ExtResource( 12 )
 random_pitch = 12.0
 
-[sub_resource type="AudioStreamRandomPitch" id=32]
+[sub_resource type="AudioStreamRandomPitch" id=17]
 audio_stream = ExtResource( 13 )
 
 [node name="TitleScreen" type="Control"]
@@ -160,14 +160,14 @@ __meta__ = {
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="Quit"]
 position = Vector2( 188.039, 49.9162 )
 scale = Vector2( 5, 5 )
-frames = SubResource( 21 )
+frames = SubResource( 5 )
 frame = 1
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
 position = Vector2( 697.213, 370.391 )
 scale = Vector2( 12.7043, 12.2539 )
-frames = SubResource( 26 )
+frames = SubResource( 10 )
 animation = "idle"
 frame = 2
 playing = true
@@ -186,7 +186,7 @@ __meta__ = {
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="OptionsButton"]
 position = Vector2( 190.605, 42.6119 )
 scale = Vector2( 5, 5 )
-frames = SubResource( 31 )
+frames = SubResource( 15 )
 playing = true
 
 [node name="TextureRect" type="TextureRect" parent="OptionsButton"]
@@ -212,7 +212,7 @@ stream = SubResource( 16 )
 bus = "sFx"
 
 [node name="Scream" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource( 32 )
+stream = SubResource( 17 )
 autoplay = true
 bus = "sFx"
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
