@@ -23,8 +23,8 @@ _global_script_class_icons={
 config/name="Dino Engineer"
 config/description="Arcade-style game about dinos fighting for their life. They somehow both crashed on an unknown planet and must find ship pieces to REPAIR their ship before the other does."
 run/main_scene="res://Scenes/Menu/Title_screen.tscn"
-boot_splash/image="res://SplashScreen.png"
-config/icon="res://Dino Engineers.png"
+boot_splash/image="res://Ressources/SplashScreen.png"
+config/icon="res://Ressources/Dino Engineers.png"
 
 [autoload]
 
