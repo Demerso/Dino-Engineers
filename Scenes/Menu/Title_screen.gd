@@ -1,6 +1,10 @@
 extends Control
 
 
+func _ready():
+	if !MenuMusic.is_playing():
+		MenuMusic.play()
+
 func _on_PlayButton_pressed():
 	$ButtonPress.play()
 	get_tree().change_scene("res://Scenes/Menu/Game/Play.tscn")

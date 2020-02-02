@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Characters/Dino.gd" type="Script" id=1]
 [ext_resource path="res://Characters/AlbinoAnimation.tres" type="SpriteFrames" id=2]
@@ -10,6 +10,20 @@
 [ext_resource path="res://sFx/Punch2.wav" type="AudioStream" id=8]
 [ext_resource path="res://sFx/DinoHurt.wav" type="AudioStream" id=9]
 [ext_resource path="res://sFx/Lose Piece.wav" type="AudioStream" id=10]
+[ext_resource path="res://Characters/Sprites/trail.png" type="Texture" id=11]
+
+[sub_resource type="Gradient" id=12]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=13]
+gradient = SubResource( 12 )
+
+[sub_resource type="ParticlesMaterial" id=11]
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color_ramp = SubResource( 13 )
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 15, 18 )
@@ -47,6 +61,15 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
+
+[node name="HurtTrail" type="Particles2D" parent="."]
+scale = Vector2( 2, 2 )
+emitting = false
+lifetime = 0.2
+one_shot = true
+local_coords = false
+process_material = SubResource( 11 )
+texture = ExtResource( 11 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 2, 2 )

@@ -29,6 +29,7 @@ config/icon="res://Ressources/Dino Engineers.png"
 [autoload]
 
 PlayerVars="*res://Characters/PlayerVars.gd"
+MenuMusic="*res://Menu Music/MenuMusic.tscn"
 
 [display]
 

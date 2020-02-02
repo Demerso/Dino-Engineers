@@ -83,6 +83,7 @@ func _physics_process(delta: float) -> void:
 		motion.y = 0
 	if hurt == true:
 		_sprite.play("Hurt")
+		$HurtTrail.emitting = true
 		
 	if bodytokick != null && kicking == true:
 		bodytokick.hurt = true

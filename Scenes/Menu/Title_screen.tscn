@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scenes/Menu/GameJam Asset/Menu Assets/Title.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Menu/Button's/Play.tscn" type="PackedScene" id=2]
@@ -10,9 +10,7 @@
 [ext_resource path="res://Scenes/Menu/background.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Menu/GameJam Asset/Menu Assets/pixil-frame-0 (4).png" type="Texture" id=9]
 [ext_resource path="res://Scenes/Menu/Title_screen.gd" type="Script" id=10]
-[ext_resource path="res://Menu Music/MenuMusic.wav" type="AudioStream" id=11]
 [ext_resource path="res://sFx/UI6.wav" type="AudioStream" id=12]
-[ext_resource path="res://sFx/UI4.wav" type="AudioStream" id=13]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 6 )
@@ -89,9 +87,6 @@ animations = [ {
 [sub_resource type="AudioStreamRandomPitch" id=16]
 audio_stream = ExtResource( 12 )
 random_pitch = 12.0
-
-[sub_resource type="AudioStreamRandomPitch" id=17]
-audio_stream = ExtResource( 13 )
 
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
@@ -203,18 +198,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 11 )
-autoplay = true
-bus = "Music"
-
 [node name="ButtonPress" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource( 16 )
-bus = "sFx"
-
-[node name="Scream" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource( 17 )
-autoplay = true
 bus = "sFx"
 [connection signal="pressed" from="PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="Quit" to="." method="_on_Quit_pressed"]
