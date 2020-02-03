@@ -12,7 +12,7 @@ func _process(delta):
 	if bodies.size() > 0 && !dead:
 		var object = item.instance()
 		object.position = get_global_position()
-		get_tree().get_root().add_child(object)
+		get_tree().get_current_scene().add_child(object)
 		$Sprite.hide()
 		$Particles2D/Timer.start()
 		dead = true

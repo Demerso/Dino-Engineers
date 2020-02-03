@@ -52,6 +52,6 @@ func _on_Area2D_body_entered(body):
 		var object = trophy.instance()
 		object.winner = ship
 		object.position = Vector2(512,300)
-		get_tree().get_root().add_child(object)
+		get_tree().get_current_scene().add_child(object)
 		
 		

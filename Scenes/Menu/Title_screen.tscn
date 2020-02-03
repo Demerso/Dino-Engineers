@@ -127,6 +127,7 @@ position = Vector2( 214.123, 60.1074 )
 scale = Vector2( 5, 5 )
 frames = ExtResource( 7 )
 animation = "Idle"
+frame = 2
 playing = true
 
 [node name="Quit" type="Button" parent="."]
@@ -156,7 +157,7 @@ __meta__ = {
 position = Vector2( 188.039, 49.9162 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 5 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="."]
@@ -164,7 +165,6 @@ position = Vector2( 697.213, 370.391 )
 scale = Vector2( 12.7043, 12.2539 )
 frames = SubResource( 10 )
 animation = "idle"
-frame = 2
 playing = true
 flip_h = true
 
@@ -182,6 +182,7 @@ __meta__ = {
 position = Vector2( 190.605, 42.6119 )
 scale = Vector2( 5, 5 )
 frames = SubResource( 15 )
+frame = 2
 playing = true
 
 [node name="TextureRect" type="TextureRect" parent="OptionsButton"]
