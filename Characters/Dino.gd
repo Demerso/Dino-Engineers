@@ -1,7 +1,5 @@
 extends KinematicBody2D
 
-onready var player_vars = get_node("/root/PlayerVars")
-
 onready var _sprite = $AnimatedSprite
 onready var _item = $item_picked
 
@@ -14,15 +12,10 @@ onready var _kick = $sFxCharacter/KickSound
 onready var _hurt = $sFxCharacter/HurtSound
 onready var _losepiece = $sFxCharacter/LosePieceSound
 
-onready var _albino = preload("res://Characters/AlbinoAnimation.tres")
-onready var _blue = preload("res://Characters/BlueAnimation.tres")
-onready var _green = preload("res://Characters/GreenAnimation.tres")
-onready var _red = preload("res://Characters/RedAnimation.tres")
-onready var _yellow = preload("res://Characters/YellowAnimation.tres")
-
 export var character: int
 
 var konami_code = 0
+var is_albino = false
 
 var walk = false
 var onfloor = true
@@ -46,14 +39,15 @@ var item_picked_up = null
 
 func _ready():
 	if character == 1:
-		_sprite.set_sprite_frames(load(player_vars.p1Sprite))
+		_sprite.set_sprite_frames(load(PlayerVars.p1Sprite))
 	else:
-		_sprite.set_sprite_frames(load(player_vars.p2Sprite))
+		_sprite.set_sprite_frames(load(PlayerVars.p2Sprite))
 
-func _physics_process(delta: float) -> void:
+# warning-ignore:unused_argument
+func _physics_process(delta):
 	motion.y += GRAVITY
 	friction = false
-	directionx = Input.get_action_strength("right" + str(character))-Input.get_action_strength("left" + str(character))
+	directionx = int(Input.get_action_strength("right" + str(character))-Input.get_action_strength("left" + str(character)))
 	
 	if item_picked_up != null:
 		_item.set_texture(load(item_picked_up))
@@ -243,5 +237,6 @@ func _input(event):
 				if event.is_action_released("kick" + str(character)): konami_code += 1
 				else: konami_code = 0
 			17:
-				if _sprite.get_sprite_frames() != _albino:
-					_sprite.set_sprite_frames(_albino)
+				if !is_albino:
+					is_albino = true
+					_sprite.set_sprite_frames(load(PlayerVars._albino))

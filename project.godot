@@ -8,21 +8,16 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "",
-"class": "GitAPI",
-"language": "NativeScript",
-"path": "res://git_api.gdns"
-} ]
+_global_script_classes=[  ]
 _global_script_class_icons={
-"GitAPI": ""
+
 }
 
 [application]
 
 config/name="Dino Engineer"
 config/description="Arcade-style game about dinos fighting for their life. They somehow both crashed on an unknown planet and must find ship pieces to REPAIR their ship before the other does."
-run/main_scene="res://Scenes/Menu/Title_screen.tscn"
+run/main_scene="res://Scenes/Menu/Title_screen/Title_screen.tscn"
 boot_splash/image="res://Ressources/SplashScreen.png"
 config/icon="res://Ressources/Dino Engineers.png"
 
@@ -38,8 +33,8 @@ window/stretch/aspect="keep"
 
 [gdnative]
 
-singletons=[ "res://git_api.gdnlib" ]
-singletons_disabled=[ "res://git_api.gdnlib" ]
+singletons=[  ]
+singletons_disabled=[  ]
 
 [importer_defaults]
 
