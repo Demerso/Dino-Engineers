@@ -1,0 +1,233 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Assets/Ressources/Dinos/Blue.tres" type="Texture" id=1]
+[ext_resource path="res://Scenes/Menu/background.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Ressources/Dinos/Red.tres" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Menu/WASD.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Menu/ARROW.PNG" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/Menu/unchecked.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Sprites/Menu/checked.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/Menu/IJKL.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/Menu/Char_Selection/Char_Selection.gd" type="Script" id=12]
+[ext_resource path="res://Assets/Sounds/sFx/UI6.wav" type="AudioStream" id=14]
+
+
+
+
+
+
+
+
+
+[sub_resource type="AudioStreamRandomPitch" id=1]
+audio_stream = ExtResource( 14 )
+random_pitch = 12.0
+
+[node name="Play" type="Control"]
+anchor_left = 0.503
+anchor_top = -0.02
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -515.072
+margin_top = 13.0
+margin_right = 2.0
+margin_bottom = -1.0
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" parent="." instance=ExtResource( 2 )]
+
+[node name="Selection" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Main" type="HBoxContainer" parent="Selection"]
+margin_left = 163.0
+margin_top = 49.0
+margin_right = 863.0
+margin_bottom = 549.0
+rect_min_size = Vector2( 700, 500 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="Player1" type="VBoxContainer" parent="Selection/Main"]
+margin_right = 348.0
+margin_bottom = 500.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Controls" type="HBoxContainer" parent="Selection/Main/Player1"]
+margin_right = 348.0
+margin_bottom = 150.0
+size_flags_horizontal = 3
+size_flags_vertical = 9
+alignment = 1
+
+[node name="ArrowLeft" type="TextureRect" parent="Selection/Main/Player1/Controls"]
+margin_right = 75.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 75, 0 )
+size_flags_horizontal = 5
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+stretch_mode = 6
+
+[node name="Controls" type="TextureRect" parent="Selection/Main/Player1/Controls"]
+margin_left = 79.0
+margin_right = 269.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 0, 150 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 4 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ArrowRight" type="TextureRect" parent="Selection/Main/Player1/Controls"]
+margin_left = 273.0
+margin_right = 348.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 75, 0 )
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+stretch_mode = 6
+flip_h = true
+
+[node name="Dino" type="TextureRect" parent="Selection/Main/Player1"]
+margin_top = 154.0
+margin_right = 348.0
+margin_bottom = 396.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 1 )
+stretch_mode = 6
+
+[node name="RdyContainer" type="CenterContainer" parent="Selection/Main/Player1"]
+margin_top = 400.0
+margin_right = 348.0
+margin_bottom = 500.0
+size_flags_horizontal = 3
+
+[node name="P1rdy" type="TextureButton" parent="Selection/Main/Player1/RdyContainer"]
+margin_left = 124.0
+margin_right = 224.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+shortcut_in_tooltip = false
+action_mode = 0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 9 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Player2" type="VBoxContainer" parent="Selection/Main"]
+margin_left = 352.0
+margin_right = 700.0
+margin_bottom = 500.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Controls" type="HBoxContainer" parent="Selection/Main/Player2"]
+margin_right = 348.0
+margin_bottom = 150.0
+size_flags_horizontal = 3
+size_flags_vertical = 9
+alignment = 1
+
+[node name="ArrowLeft" type="TextureRect" parent="Selection/Main/Player2/Controls"]
+margin_right = 75.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 75, 0 )
+size_flags_horizontal = 5
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+stretch_mode = 6
+
+[node name="Controls" type="TextureRect" parent="Selection/Main/Player2/Controls"]
+margin_left = 79.0
+margin_right = 269.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 0, 150 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 10 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ArrowRight" type="TextureRect" parent="Selection/Main/Player2/Controls"]
+margin_left = 273.0
+margin_right = 348.0
+margin_bottom = 150.0
+rect_min_size = Vector2( 75, 0 )
+size_flags_horizontal = 4
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+stretch_mode = 6
+flip_h = true
+
+[node name="Dino" type="TextureRect" parent="Selection/Main/Player2"]
+margin_top = 154.0
+margin_right = 348.0
+margin_bottom = 396.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+stretch_mode = 6
+flip_h = true
+
+[node name="RdyContainer" type="CenterContainer" parent="Selection/Main/Player2"]
+margin_top = 400.0
+margin_right = 348.0
+margin_bottom = 500.0
+size_flags_horizontal = 3
+
+[node name="P2rdy" type="TextureButton" parent="Selection/Main/Player2/RdyContainer"]
+margin_left = 124.0
+margin_right = 224.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+toggle_mode = true
+shortcut_in_tooltip = false
+action_mode = 0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 9 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonPress" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource( 1 )
+bus = "sFx"
+
+[node name="Back Button" type="TextureButton" parent="."]
+margin_right = 128.0
+rect_min_size = Vector2( 128, 128 )
+texture_normal = ExtResource( 5 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_down" from="Selection/Main/Player1/RdyContainer/P1rdy" to="." method="_on_P1rdy_button_down"]
+[connection signal="button_down" from="Selection/Main/Player2/RdyContainer/P2rdy" to="." method="_on_P2rdy_button_down"]
+[connection signal="pressed" from="Back Button" to="." method="_on_Back_Button_pressed"]

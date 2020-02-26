@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scripts/Items/Item.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Ressources/Items/Explosion.tres" type="Material" id=2]
+[ext_resource path="res://Assets/Sounds/sFx/Items/Get Piece.wav" type="AudioStream" id=3]
+[ext_resource path="res://Assets/Sounds/sFx/Items/MeteoriteBoom.wav" type="AudioStream" id=4]
+
+
+
+
+
+
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 25.0
+
+[sub_resource type="AudioStreamRandomPitch" id=2]
+audio_stream = ExtResource( 4 )
+
+[sub_resource type="AudioStreamRandomPitch" id=3]
+audio_stream = ExtResource( 3 )
+
+[node name="Item" type="Area2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="Timer" type="Timer" parent="Sprite"]
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+emitting = false
+amount = 360
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.75
+process_material = ExtResource( 2 )
+
+[node name="sFxItem" type="Node" parent="."]
+
+[node name="ExplosionSound" type="AudioStreamPlayer2D" parent="sFxItem"]
+stream = SubResource( 2 )
+autoplay = true
+bus = "sFx"
+
+[node name="PickupSound" type="AudioStreamPlayer2D" parent="sFxItem"]
+stream = SubResource( 3 )
+bus = "sFx"
+[connection signal="body_entered" from="." to="." method="_on_Item_body_entered"]
+[connection signal="timeout" from="Sprite/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="finished" from="sFxItem/PickupSound" to="." method="_on_PickupSound_finished"]

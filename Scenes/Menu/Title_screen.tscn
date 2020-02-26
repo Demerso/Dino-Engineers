@@ -1,0 +1,166 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Assets/Sounds/sFx/UI6.wav" type="AudioStream" id=1]
+[ext_resource path="res://Scripts/Menu/Title/Title_screen.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Menu/background.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Assets/Ressources/Dinos/Blue.tres" type="Texture" id=4]
+[ext_resource path="res://Assets/Ressources/Dinos/Green.tres" type="Texture" id=5]
+[ext_resource path="res://Assets/Ressources/Dinos/Yellow.tres" type="Texture" id=6]
+[ext_resource path="res://Assets/Ressources/Dinos/Albino.tres" type="Texture" id=7]
+[ext_resource path="res://Assets/Sprites/Menu/Title.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sprites/Menu/Play_button.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/Menu/Stop_button.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sprites/Menu/Options_button.png" type="Texture" id=11]
+
+[sub_resource type="AudioStreamRandomPitch" id=1]
+audio_stream = ExtResource( 1 )
+random_pitch = 12.0
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 3.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 400.0 ],
+"_edit_use_anchors_": false
+}
+
+[node name="Background" parent="." instance=ExtResource( 3 )]
+
+[node name="ButtonPress" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource( 1 )
+bus = "sFx"
+
+[node name="TitleScreen" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Main" type="VBoxContainer" parent="TitleScreen"]
+margin_left = 38.0
+margin_top = 57.0
+margin_right = 988.0
+margin_bottom = 543.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Logo" type="TextureRect" parent="TitleScreen/Main"]
+margin_right = 950.0
+margin_bottom = 172.0
+texture = ExtResource( 8 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Menu" type="HBoxContainer" parent="TitleScreen/Main"]
+margin_top = 176.0
+margin_right = 950.0
+margin_bottom = 486.0
+size_flags_horizontal = 3
+
+[node name="Buttons" type="VBoxContainer" parent="TitleScreen/Main/Menu"]
+margin_right = 300.0
+margin_bottom = 310.0
+custom_constants/separation = 5
+alignment = 1
+
+[node name="Play" type="HBoxContainer" parent="TitleScreen/Main/Menu/Buttons"]
+margin_right = 300.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 300, 0 )
+
+[node name="PlayBtn" type="Button" parent="TitleScreen/Main/Menu/Buttons/Play"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+icon = ExtResource( 9 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dino" type="TextureRect" parent="TitleScreen/Main/Menu/Buttons/Play"]
+margin_left = 104.0
+margin_right = 300.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 4 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="HBoxContainer" parent="TitleScreen/Main/Menu/Buttons"]
+margin_top = 105.0
+margin_right = 300.0
+margin_bottom = 205.0
+
+[node name="OptionsBtn" type="Button" parent="TitleScreen/Main/Menu/Buttons/Options"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+icon = ExtResource( 11 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dino" type="TextureRect" parent="TitleScreen/Main/Menu/Buttons/Options"]
+margin_left = 104.0
+margin_right = 300.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Quit" type="HBoxContainer" parent="TitleScreen/Main/Menu/Buttons"]
+margin_top = 210.0
+margin_right = 300.0
+margin_bottom = 310.0
+
+[node name="QuitBtn" type="Button" parent="TitleScreen/Main/Menu/Buttons/Quit"]
+margin_right = 100.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+icon = ExtResource( 10 )
+flat = true
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dino" type="TextureRect" parent="TitleScreen/Main/Menu/Buttons/Quit"]
+margin_left = 104.0
+margin_right = 300.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 6 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BigDino" type="TextureRect" parent="TitleScreen/Main/Menu"]
+margin_left = 304.0
+margin_right = 950.0
+margin_bottom = 310.0
+size_flags_horizontal = 3
+texture = ExtResource( 7 )
+stretch_mode = 6
+flip_h = true
+[connection signal="pressed" from="TitleScreen/Main/Menu/Buttons/Play/PlayBtn" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="TitleScreen/Main/Menu/Buttons/Options/OptionsBtn" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="TitleScreen/Main/Menu/Buttons/Quit/QuitBtn" to="." method="_on_Quit_pressed"]

@@ -1,0 +1,159 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scripts/Menu/Options/OptionsMenu.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Sprites/Menu/ARROW.PNG" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Menu/mastervol.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Sprites/Menu/Sound.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Sprites/Menu/music.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Menu/background.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Sounds/sFx/UI6.wav" type="AudioStream" id=9]
+
+
+
+
+
+[sub_resource type="AudioStreamRandomPitch" id=1]
+audio_stream = ExtResource( 9 )
+random_pitch = 12.0
+
+[node name="OptionsMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.28473
+margin_top = -0.472565
+margin_right = 2.28467
+margin_bottom = -0.472534
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" parent="." instance=ExtResource( 7 )]
+
+[node name="ButtonPress" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource( 1 )
+attenuation = 0.112656
+bus = "sFx"
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sliders" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 111.0
+margin_top = 58.0
+margin_right = 911.0
+margin_bottom = 542.0
+rect_min_size = Vector2( 800, 300 )
+custom_constants/separation = 50
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Master" type="HBoxContainer" parent="CenterContainer/Sliders"]
+margin_right = 800.0
+margin_bottom = 128.0
+size_flags_vertical = 0
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="CenterContainer/Sliders/Master"]
+margin_right = 128.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 128, 128 )
+texture = ExtResource( 4 )
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="masterVolSlider" type="HSlider" parent="CenterContainer/Sliders/Master"]
+margin_left = 132.0
+margin_right = 800.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+min_value = 40.0
+max_value = 80.0
+value = 80.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Music" type="HBoxContainer" parent="CenterContainer/Sliders"]
+margin_top = 178.0
+margin_right = 800.0
+margin_bottom = 306.0
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="CenterContainer/Sliders/Music"]
+margin_right = 128.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 128, 128 )
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BMGSlider" type="HSlider" parent="CenterContainer/Sliders/Music"]
+margin_left = 132.0
+margin_right = 800.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 80.0
+value = 80.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sfx" type="HBoxContainer" parent="CenterContainer/Sliders"]
+margin_top = 356.0
+margin_right = 800.0
+margin_bottom = 484.0
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="CenterContainer/Sliders/Sfx"]
+margin_right = 128.0
+margin_bottom = 128.0
+rect_min_size = Vector2( 128, 128 )
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SFXSlider" type="HSlider" parent="CenterContainer/Sliders/Sfx"]
+margin_left = 132.0
+margin_right = 800.0
+margin_bottom = 128.0
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 80.0
+value = 80.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="TextureButton" parent="."]
+margin_left = -2.0
+margin_top = 1.0
+margin_right = -2.0
+margin_bottom = 1.0
+rect_min_size = Vector2( 128, 128 )
+texture_normal = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="value_changed" from="CenterContainer/Sliders/Master/masterVolSlider" to="." method="_on_masterVolSlider_value_changed"]
+[connection signal="value_changed" from="CenterContainer/Sliders/Music/BMGSlider" to="." method="_on_BMGSlider_value_changed"]
+[connection signal="value_changed" from="CenterContainer/Sliders/Sfx/SFXSlider" to="." method="_on_SFXSlider_value_changed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_TextureButton_pressed"]

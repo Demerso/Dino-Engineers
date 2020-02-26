@@ -17,14 +17,14 @@ _global_script_class_icons={
 
 config/name="Dino Engineer"
 config/description="Arcade-style game about dinos fighting for their life. They somehow both crashed on an unknown planet and must find ship pieces to REPAIR their ship before the other does."
-run/main_scene="res://Scenes/Menu/Title_screen/Title_screen.tscn"
-boot_splash/image="res://Ressources/SplashScreen.png"
-config/icon="res://Ressources/Dino Engineers.png"
+run/main_scene="res://Scenes/Menu/Title_screen.tscn"
+boot_splash/image="res://Assets/Ressources/SplashScreen.png"
+config/icon="res://Assets/Ressources/Dino Engineers.png"
 
 [autoload]
 
-PlayerVars="*res://Characters/PlayerVars.gd"
-MenuMusic="*res://Menu Music/MenuMusic.tscn"
+PlayerVars="*res://Scripts/Dinos/PlayerVars.gd"
+MenuMusic="*res://Scenes/MenuMusic.tscn"
 
 [display]
 
